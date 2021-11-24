@@ -24,7 +24,7 @@
             
             let userAgentString = navigator.userAgent;
             let isAndroid = userAgentString.indexOf("Android") > -1;
-            let isiOS = userAgentString.indexOf("Mac") > > -1;
+            let isiOS = userAgentString.indexOf("Mac") > -1;
             if ((isAndroid) && (isiOS)) isiOS = false;
             console.log("chrome", isAndroid);
             console.log("safari", isiOS);
