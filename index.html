@@ -20,20 +20,21 @@
             url = url.split('?');
             var id = url[1];
             var id = id ?id.split('='):'';
-             let userAgentString = navigator.userAgent;
-            var page = '';
+            console.log(`tap-user://${id[0]}${id ? '/':''}${id[1]}`);
+            
+            let userAgentString = navigator.userAgent;
             let isChrome = userAgentString.indexOf("Chrome") > -1;
             let isSafari = userAgentString.indexOf("Safari") > -1;
             if ((isChrome) && (isSafari)) isSafari = false;
             console.log("chrome", isChrome);
-            console.log(`tap-user://${id[0]}${id ? '/':''}${id[1]}`);
             console.log("safari", isSafari);
+            
             if (isSafari) {
                 window.location.href = `tap-user://${id[0]}${id ? '/':''}${id[1]}`;
-                setTimeout(function () { window.location.replace("https://www.apple.com/ios/app-store/"); }, 15000);
+                setTimeout(function () { window.location.replace("https://www.apple.com/ios/app-store/"); }, 10000);
             } else {
                 window.location = `tap-user://${id[0]}${id ? '/':''}${id[1]}`;
-                setTimeout(function () { window.location.replace("https://play.google.com/store/apps"); }, 15000);
+                setTimeout(function () { window.location.replace("https://play.google.com/store/apps"); }, 10000);
             }
         }
     </script>
