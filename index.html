@@ -23,18 +23,18 @@
             console.log(`tap-user://${id[0]}${id ? '/':''}${id[1]}`);
             
             let userAgentString = navigator.userAgent;
-            let isChrome = userAgentString.indexOf("Chrome") > -1;
-            let isSafari = userAgentString.indexOf("Safari") > -1;
-            if ((isChrome) && (isSafari)) isSafari = false;
-            console.log("chrome", isChrome);
-            console.log("safari", isSafari);
+            let isAndroid = userAgentString.indexOf("Android") > -1;
+            let isiOS = userAgentString.indexOf("Mac") > > -1;
+            if ((isAndroid) && (isiOS)) isiOS = false;
+            console.log("chrome", isAndroid);
+            console.log("safari", isiOS);
             
-            if (isSafari) {
+            if (isiOS) {
                 window.location.href = `tap-user://${id[0]}${id ? '/':''}${id[1]}`;
-                setTimeout(function () { window.location.replace("https://www.apple.com/ios/app-store/"); }, 10000);
+                setTimeout(function () { window.location.replace("itms-apps://"); }, 5000);
             } else {
                 window.location = `tap-user://${id[0]}${id ? '/':''}${id[1]}`;
-                setTimeout(function () { window.location.replace("https://play.google.com/store/apps"); }, 10000);
+                setTimeout(function () { window.location.replace("market://details?id="); }, 5000);
             }
         }
     </script>
